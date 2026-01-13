@@ -1,3 +1,3 @@
 <?php
-$livros = Livro::all($_REQUEST["pesquisar"] ?? "");
-view("index", ["livros" => $livros]);
+$movies = Movie::all($_REQUEST["search"] ?? "");
+view("index", ["movies" => $movies]);

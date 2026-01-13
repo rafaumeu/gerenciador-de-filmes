@@ -1,28 +1,28 @@
 <?php
-require "Validacao.php";
+require "Validation.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email'];
-  $senha = $_POST['senha'];
-  $validacao = Validacao::validar([
+  $password = $_POST['password'];
+  $validacao = Validation::validate([
     'email' => ['required', 'email'],
-    'senha' => ['required']
+    'password' => ['required']
   ], $_POST);
 
-  if ($validacao->naoPassou('login')) {
+  if ($validacao->fails('login')) {
     header('location: /login');
     exit();
   }
 
-  $usuario = $DB->query(
-    query: "select * from usuarios where email = :email",
-    class: Usuario::class,
+  $user = $DB->query(
+    query: "select * from users where email = :email",
+    class: User::class,
     params: [
       'email' => $email,
     ]
   )->fetch();
-  if ($usuario && password_verify($senha, $usuario->senha)) {
-    $_SESSION['auth'] = $usuario;
-    flash()->push('mensagem', 'Seja bem-vindo(a) ' . $usuario->nome . '!');
+  if ($user && password_verify($password, $user->password)) {
+    $_SESSION['auth'] = $user;
+    flash()->push('mensagem', 'Seja bem-vindo(a) ' . $user->name . '!');
     header("location: /");
     exit();
   } else {

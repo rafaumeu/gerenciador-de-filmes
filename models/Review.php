@@ -1,5 +1,5 @@
 <?php
-class Reviews
+class Review
 {
   public $id;
   public $user_id;

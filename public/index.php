@@ -1,7 +1,7 @@
 <?php
-require "../models/Livro.php";
-require "../models/Usuario.php";
-require "../models/Avaliacao.php";
+require "../models/Movie.php";
+require "../models/User.php";
+require "../models/Review.php";
 session_start();
 require "../functions.php";
 require "../Flash.php";
