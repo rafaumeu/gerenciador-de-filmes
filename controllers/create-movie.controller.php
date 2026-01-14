@@ -1,7 +1,7 @@
 <?php
-require 'Validation.php';
+require __DIR__ . '/../Validation.php';
 if ($_SERVER["REQUEST_METHOD"] != "POST") {
-  header("Location: /livros");
+  header("Location: /movies");
   exit();
 }
 
@@ -13,7 +13,7 @@ $user_id = auth()->id;
 $title = $_POST['title'];
 $director = $_POST['director'];
 $description = $_POST['description'];
-$release_year = $_POST['release_year'];
+$year = $_POST['year'];
 
 $validation = Validation::validate([
   "title" => ["required", "min:3", "max:255"],
@@ -25,6 +25,7 @@ $validation = Validation::validate([
 ], data: $_POST);
 
 if ($validation->fails('movie')) {
+  $_SESSION['old'] = $_POST;
   header('location: /my-movies');
   exit();
 }
