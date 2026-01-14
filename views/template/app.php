@@ -9,7 +9,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200..1000&family=Rajdhani:wght@500;700&family=Rammetto+One&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css" />
   <title>AB Filmes</title>
   <style type="text/tailwindcss">
     @theme{
@@ -38,9 +45,9 @@
       <div class="flex items-center gap-4 font-title text-sm">
         <img src="assets/logo.svg" class="w-12" alt="AB Filmes">
       </div>
-      <ul class="flex items-center gap-8 font-title text-sm">
+      <ul class="flex items-center gap-8 font-title text-md">
         <li>
-          <a href="/" class="flex items-center gap-2 px-4 py-2 rounded text-purple-base hover:text-purple-light transition-colors <?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php') ? 'bg-gray-200 text-purple-base' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-100' ?>">
+          <a href="/" class="flex items-center gap-2 px-4 py-2 rounded text-gray-500 hover:text-purple-light transition-colors <?= ($_SERVER['REQUEST_URI'] == '/' || $_SERVER['REQUEST_URI'] == '/index.php') ? 'bg-gray-200 text-purple-base' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-100' ?>">
             <i class="ph ph-popcorn"></i>Explorar
           </a>
         </li>
@@ -54,26 +61,30 @@
       </ul>
 
 
-      <div class="flex items-center">
+      <div class="flex items-center gap-2">
         <?php if (auth()): ?>
-          <span class="text-sm text-gray-700">
-            Olá <strong class="font-bold"><?= auth()->nome ?></strong>
-          </span>
-          <div class="w-8 h-8 rounded-full bg-gradient-to-r from-purple-base to-purple-light p-[1px]">
-
-            <img src="https://ui-avatars.com/api/?name=<?= urlencode(auth()->nome) ?>&background=121214&color=A85FDD" class="w-full h-full rounded-full object-cover" alt="Avatar">
+          <div class="flex items-center gap-3 text-sm text-gray-600">
+            <span>
+              Olá <strong class="font-bold"><?= auth()->name ?></strong>
+            </span>
           </div>
-      </div>
+          <div class="w-8 h-8 rounded bg-gradient-to-r from-purple-base to-purple-light p-[1px]">
 
-      <a href="/logout" class="ml-2 text-gray-500 hover:text-red-400 transition-colors">
-        <i class="ph ph-sign-out text-xl"></i>
-      </a>
-    <?php else: ?>
-      <a href="/login" class="flex items-center gap-2 font-bold text-gray-700 hover:text-white transition-colors">
-        Fazer login
-        <i class="ph ph-sign-in text-xl"></i>
-      </a>
-    <?php endif; ?>
+            <img src="https://ui-avatars.com/api/?name=<?= urlencode(auth()->name) ?>&background=121214&color=A85FDD" class="w-full h-full rounded-full object-cover" alt="Avatar">
+          </div>
+          <span class="h-6 w-px bg-gray-300"></span>
+
+          <a href="/logout" class="text-gray-500 hover:text-red-400 transition-colors">
+            <i class="ph ph-sign-out text-xl"></i>
+          </a>
+        <?php else: ?>
+
+          <a href="/login" class="flex items-center gap-2 font-bold text-gray-700 hover:text-white transition-colors">
+            Fazer login
+            <i class="ph ph-sign-in text-xl"></i>
+          </a>
+        <?php endif; ?>
+      </div>
 
     </nav>
   </header>

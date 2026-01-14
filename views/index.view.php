@@ -1,16 +1,23 @@
 <div class="flex justify-between items-center mb-10">
   <h1 class="font-display text-3xl font-bold">Explorar</h1>
-  <form class="w-full max-w-sm relative">
-    <i class="ph ph-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 text-lg"></i>
-    <input
-      type="text"
-      name="search"
-      class="w-full bg-gray-200 rounded-lg py-3 pl-12 pr-4 text-sm text-gray-700 border border-transparent placeholder-gray-500 focus:outline-none focus:border-purple-base transition-colors"
-      placeholder="Pesquisar..." />
-  </form>
+  <?php require 'partials/_search.php' ?>
 </div>
-<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-  <?php foreach ($livros as $livro) { ?>
-    <?php require 'partials/_livro.php'; ?>
-  <?php } ?>
-</section>
+<?php if (empty($movies)): ?>
+  <div class="flex flex-col items-center justify-center py-20 text-center opacity-60">
+    <i class="ph ph-film-strip text-6xl text-gray-600 mb-4"></i>
+    <h2 class="text-xl font-bold text-gray-500 mb-2">
+      Nenhum filme encontrado "<?= htmlspecialchars($_REQUEST['search'] ?? '') ?>"
+    </h2>
+    <p class="text-gray-400 mb-6">Que tal tentar outra busca?</p>
+    <a href="/" class="text-purple-base hover:text-purple-light font-bold hover:underline">
+      <i class="ph ph-x"></i>
+      Limpar filtro
+    </a>
+  </div>
+<?php else: ?>
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <?php foreach ($movies as $movie) { ?>
+      <?php require 'partials/_movie.php'; ?>
+    <?php } ?>
+  </section>
+<?php endif; ?>
