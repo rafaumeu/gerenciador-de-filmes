@@ -1,5 +1,5 @@
 <?php
-require "Validation.php";
+require __DIR__ . '/../Validation.php';
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
   header("location: /");
   exit();
