@@ -1,14 +1,14 @@
 <?php
-require "Validation.php";
+require __DIR__ . "/../Validation.php";
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $email = $_POST['email'];
   $password = $_POST['password'];
-  $validacao = Validation::validate([
+  $validation = Validation::validate([
     'email' => ['required', 'email'],
     'password' => ['required']
   ], $_POST);
 
-  if ($validacao->fails('login')) {
+  if ($validation->fails('login')) {
     header('location: /login');
     exit();
   }
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     header("location: /");
     exit();
   } else {
-    flash()->push('validacoes_login', ["Usuário ou senha incorretos"]);
+    flash()->push('validations_login', ["Usuário ou senha incorretos"]);
   }
 }
 view('login');

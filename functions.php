@@ -46,3 +46,13 @@ function auth()
   }
   return $_SESSION['auth'];
 }
+
+function old($key)
+{
+  if (isset($_SESSION['old']) && array_key_exists($key, $_SESSION['old'])) {
+    $dado = $_SESSION['old'][$key];
+    unset($_SESSION['old'][$key]);
+    return $dado;
+  }
+  return '';
+}

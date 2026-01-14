@@ -1,5 +1,5 @@
 <?php
-require "Validation.php";
+require __DIR__ . '/../Validation.php';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $validation = Validation::validate([
     'name' => ['required'],
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     params: [
       'name' => $_POST['name'],
       'email' => $_POST['email'],
-      // 'email_confirmacao' => $_POST['email_confirmacao'],
+      'email_confirmation' => $_POST['email_confirmation'],
       'password' => password_hash($_POST['password'], PASSWORD_DEFAULT)
     ]
   );

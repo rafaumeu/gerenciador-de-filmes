@@ -23,19 +23,19 @@ class Validation
   private function required($field, $value)
   {
     if (empty($value)) {
-      $this->validations[] = "The $field is required.";
+      $this->validations[$field][] = "O campo $field é obrigatório.";
     }
   }
   private function email($field, $value)
   {
     if (! filter_var($value, FILTER_VALIDATE_EMAIL)) {
-      $this->validations[] = "The $field is invalid.";
+      $this->validations[$field][] = "O campo $field é invalido.";
     }
   }
   private function confirmed($field, $value, $confirmationValue)
   {
     if ($value != $confirmationValue) {
-      $this->validations[] = "The confirmation $field does not match.";
+      $this->validations[$field][] = "O campo $field não corresponde.";
     }
   }
 
@@ -51,13 +51,13 @@ class Validation
   private function min($min, $field, $value)
   {
     if (strlen($value) < $min) {
-      $this->validations[] = "The $field must have at least $min characters.";
+      $this->validations[$field][] = "O campo $field deve ter pelo menos $min caracteres.";
     }
   }
   private function max($max, $field, $value)
   {
     if (strlen($value) > $max) {
-      $this->validations[] = "The $field must have at most $max characters.";
+      $this->validations[$field][] = "O campo $field deve ter no máximo $max caracteres.";
     }
   }
   private function unique($table, $field, $value)
@@ -71,17 +71,17 @@ class Validation
       params: ['value' => $value]
     )->fetch();
     if ($result) {
-      $this->validations[] = "The $field is already in use.";
+      $this->validations[$field][] = "O campo $field já está em uso.";
     }
   }
 
   private function strong($field, $value)
   {
     if (!preg_match("/[A-Z]/", $value)) {
-      $this->validations[] = "The $field must contain at least one uppercase letter.";
+      $this->validations[$field][] = "O campo $field deve conter pelo menos uma letra maiúscula.";
     }
     if (!preg_match("/[^a-zA-Z0-9]/", $value)) {
-      $this->validations[] = "The $field must contain at least one special character.";
+      $this->validations[$field][] = "O campo $field deve conter pelo menos um caractere especial.";
     }
   }
 }

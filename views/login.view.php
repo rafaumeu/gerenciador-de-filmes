@@ -2,12 +2,12 @@
   <div class="border border-stone-700 rounded">
     <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Login</h1>
     <form class="space-y-2 space-x-4" method="post">
-      <?php if ($validacoes = flash()->get('validacoes_login')): ?>
+      <?php if ($validations = flash()->get('validations_login')): ?>
         <div class="bg-red-900 border-red-800 border-2 px-4 py-2 rounded text-sm font-bold text-red-300">
           <ul>
             <li>Dê uma olhada nos erros abaixo</li>
-            <?php foreach ($validacoes as $validacao): ?>
-              <li><?= $validacao; ?></li>
+            <?php foreach ($validations as $validation): ?>
+              <li><?= $validation; ?></li>
             <?php endforeach; ?>
           </ul>
         </div>
@@ -16,7 +16,7 @@
       <input type="email" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu email" name="email">
       <label class="text-stone-500 mb-px">Senha</label>
       <div x-data="{show: false, senha: ''}" class="relative transition-all">
-        <input x-model="senha" :type="show ? 'text' : 'password'" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite sua senha" name="senha">
+        <input x-model="senha" :type="show ? 'text' : 'password'" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite sua senha" name="password">
         <button type="button" @click="show = !show" class="absolute right-2 top-2 text-stone-400 hover:text-stone-200">
           <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
@@ -34,23 +34,23 @@
   </div>
   <div class="border border-stone-700 rounded">
     <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Registro</h1>
-    <form class="space-y-2 space-x-4" method="post" action="/registrar">
-      <?php if ($validacoes = flash()->get('validacoes_registrar')): ?>
+    <form class="space-y-2 space-x-4" method="post" action="/register">
+      <?php if ($validations = flash()->get('validations_registrar')): ?>
         <div class="bg-red-900 border-red-800 border-2 px-4 py-2 rounded text-sm font-bold text-red-300">
           <ul>
             <li>Dê uma olhada nos erros abaixo</li>
-            <?php foreach ($validacoes as $validacao): ?>
-              <li><?= $validacao; ?></li>
+            <?php foreach ($validations as $validation): ?>
+              <li><?= $validation; ?></li>
             <?php endforeach; ?>
           </ul>
         </div>
       <?php endif; ?>
       <label class="text-stone-500 mb-px">Nome</label>
-      <input type="text" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu nome" name="nome">
+      <input type="text" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu nome" name="name">
       <label class="text-stone-500 mb-px">Email</label>
       <input type="text" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu email" name="email">
       <label class="text-stone-500 mb-px">Confirme seu email</label>
-      <input type="text" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu email" name="email_confirmacao">
+      <input type="text" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite seu email" name="email_confirmation">
       <label class="text-stone-500 mb-px">Senha</label>
       <div x-data="{
       show: false,
@@ -78,7 +78,7 @@
       return 'Forte';
       }
             }" class="relative transition-all">
-        <input x-model="senha" :type="show ? 'text' : 'password'" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite sua senha" name="senha">
+        <input x-model="senha" :type="show ? 'text' : 'password'" class="border-stone-800 bg-stone-900 text-sm border-2 rounded-md focus:outline-none px-2 py-1 w-full" placeholder="digite sua senha" name="password">
         <button type="button" @click="show = !show" class="absolute  right-2 top-2 text-stone-400 hover:text-stone-200">
           <svg x-show="!show" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />

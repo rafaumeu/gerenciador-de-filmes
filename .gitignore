@@ -13,3 +13,4 @@ composer.phar
 .env
 .phpunit.result.cache
 .agent/*
+task.md
