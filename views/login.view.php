@@ -1,5 +1,27 @@
-<div class="mt-6 grid grid-cols-2 gap-2">
-  <div class="border border-stone-700 rounded">
+<div class="grid grid-cols-1 lg:grid-cols-2 h-screen bg-gray-100 overflow-hidden">
+  <div class="relative hidden flex-col justify-between p-12 text-white lg:flex">
+    <div class="absolute inset-0 bg-gray-100">
+      <img src="assets/image.png" class="h-full w-full object-cover opacity-60">
+      <div class="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/20 to-transparent"></div>
+    </div>
+    <div class="relative z-20 flex items-center gap-2 text-3xl font-bol font-display tracking-wide">
+      <img src="assets/logo.svg" alt="logo" class="w-10 h-10">
+    </div>
+    <div class="relative z-20 max-w-lg">
+      <blockquote class="space-y-6">
+        <h1 class="text-md font-display text-gray-600 font-bold leading-tight">
+          ab filmes
+        </h1>
+        <p class="text-2xl font-display text-gray-700 font-bold leading-tight">
+          "O guia definitivo para os amantes de cinema."
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="border border-stone-700 rounded">
     <h1 class="border-b border-stone-700 text-stone-400 font-bold px-4 py-2">Login</h1>
     <form class="space-y-2 space-x-4" method="post">
       <?php if ($validations = flash()->get('validations_login')): ?>
@@ -97,5 +119,4 @@
       <button type="submit" class="border-lime-800 bg-lime-900 px-4 py-2 rounded-md border border-2 hover:bg-lime-800">Registrar</button>
     </form>
 
-  </div>'
-</div>'
+  </div> -->

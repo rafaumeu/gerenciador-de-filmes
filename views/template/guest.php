@@ -16,16 +16,21 @@
   <title>Ab Filmes</title>
   <style type="text/tailwindcss">
     @theme {
-            --color-purple-base: #892CCD;
-            --color-purple-light: #A85FDD;
-            --color-gray-100: #0F0F1A;
-            --color-gray-200: #131320;
-            --color-gray-300: #1A1B2D;
-            --color-gray-900: #121214; 
-            /* ... suas outras cores ... */
-            --font-display: "Rammetto One", sans-serif;
-            --font-title: "Rajdhani", sans-serif;
-            --font-body: "Nunito Sans", sans-serif;
+          --color-purple-base: #892CCD;
+          --color-purple-light: #A85FDD;
+          --color-gray-100: #0F0F1A;
+          --color-gray-200: #131320;
+          --color-gray-300: #1A1B2D;
+          --color-gray-400: #45455F;
+          --color-gray-500: #7A7B9F;
+          --color-gray-600: #B5B6C9;
+          --color-gray-700: #E4E5EC;
+          --color-white: #FFFFFF;
+          --color-error-base: #D04048;
+          --color-error-light: #F77980;
+          --font-display: "Rammetto One", sans-serif;
+          --font-title: "Rajdhani", sans-serif;
+          --font-body: "Nunito Sans", sans-serif;
         }
     </style>
 </head>
