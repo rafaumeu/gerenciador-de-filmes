@@ -14,6 +14,8 @@ class Movie
   public $description;
   public $poster;
 
+  public $rating;
+  public $reviews_count;
   public $user_id;
 
 
@@ -30,8 +32,8 @@ class Movie
    m.genre, 
    m.description, 
    m.poster,
-   ifnull(round(sum(a.rating) / 5.0),0) as nota_avaliacao, 
-   ifnull(count(a.id),0) as count_avaliacoes 
+   ifnull(round(avg(a.rating),1),0) as rating, 
+   ifnull(count(a.id),0) as reviews_count 
    from movies m
    left join reviews a on a.movie_id = m.id 
    where $where
@@ -43,7 +45,7 @@ class Movie
   public static function get($id)
   {
     return self::query(
-      where: "l.id = :id",
+      where: "m.id = :id",
       params: ['id' => $id]
     )->fetch();
   }

@@ -11,5 +11,9 @@ foreach ($reviews as $review) {
     class: User::class,
     params: ["id" => $review->user_id]
   )->fetch();
+  $review->user->reviews_count = $DB->query(
+    query: 'select count(*) as total from reviews where user_id = :user_id',
+    params: ["user_id" => $review->user_id]
+  )->fetch()["total"];
 }
-view("movie", ["movie" => $movie, "reviews" => $reviews]);
+view("movies", ["movie" => $movie, "ratings" => $reviews]);
