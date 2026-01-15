@@ -40,8 +40,8 @@
 </head>
 
 <body class="bg-gray-100 text-gray-700 font-body antialiased">
-  <header class="bg-gray-100 border-b border-gray-100 py-5">
-    <nav class="w-full max-w-screen-xl mx-auto px-6 flex justify-between items-center">
+  <header class="bg-gray-200 border-b border-gray-100 py-5">
+    <nav class="w-full max-w-screen-3xl mx-auto px-6 flex justify-between items-center">
       <div class="flex items-center gap-4 font-title text-sm">
         <img src="assets/logo.svg" class="w-12" alt="AB Filmes">
       </div>
