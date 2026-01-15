@@ -35,7 +35,7 @@
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-700 font-body antialiased">
+<body class="bg-gray-300 text-gray-700 font-body antialiased">
   <?php require "../views/{$view}.view.php"; ?>
 </body>
 
