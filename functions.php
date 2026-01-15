@@ -1,9 +1,9 @@
 <?php
-function view($viewName, $data = [])
+function view($viewName, $data = [], $template = 'app')
 {
   extract($data);
   $view = $viewName;
-  require "views/template/app.php";
+  require "views/template/{$template}.php";
 }
 function dd(...$dump)
 {

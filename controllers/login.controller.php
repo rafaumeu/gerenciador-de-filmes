@@ -29,5 +29,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     flash()->push('validations_login', ["Usuário ou senha incorretos"]);
   }
 }
-view('login');
+view('login', [], 'guest');
 false;
